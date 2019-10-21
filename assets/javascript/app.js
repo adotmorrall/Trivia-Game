@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    $('#game-timer').parent().hide();
+    $("#game-timer").parent().hide();
      $(document).on('click', '#start-game',function(){
-         $('#start-game').hide();
-         $('#game-timer').parent().show();
+         $("#start-game").hide();
+         $("#game-timer").parent().show();
          $("#game-questions").parent().show();
         var seconds = 10;
         var gameTimer = setInterval(() => {
@@ -18,6 +18,14 @@ $(document).ready(function(){
 
         /* Create an array for the questions
         & assign a variable per question where it calls the index of it in the gameQuestions array */
+
+        var gameQuestions = {
+            question1: 'Who framed Roger Rabbit?',
+            options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
+            answer: 'The Fuzz',     
+        }
+        
+        
 
  /*     var gameQuestions = [
          {
