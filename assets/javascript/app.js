@@ -3,18 +3,33 @@ $(document).ready(function(){
      $(document).on('click', '#start-game',function(){
          $('#start-game').hide();
          $('#game-timer').parent().show();
-        var seconds = 60;
+         $("#game-questions").parent().show();
+        var seconds = 10;
         var gameTimer = setInterval(() => {
         seconds--;
         if (seconds === 0) {
-            clearInterval(gameTimer)
+            clearInterval(gameTimer);
+            alert("Time's up!");
         }
         $("#game-timer").text(seconds);
         }, 1000);
+        $("#game-questions").text(gameQuestions);
      });
 
+        /* Create an array for the questions
+        & assign a variable per question where it calls the index of it in the gameQuestions array */
 
-
+ /*     var gameQuestions = [
+         {
+             question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi quod cum ullam totam magni"
+         },
+         {
+             question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi quod cum ullam totam magni"
+         },
+         {
+             question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi quod cum ullam totam magni"
+         },
+     ] */
 
      setTimeout(()=> {
         console.log($('input:checked'))
