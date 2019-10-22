@@ -9,11 +9,11 @@ $(document).ready(function(){
         seconds--;
         if (seconds === 0) {
             clearInterval(gameTimer);
-            alert("Time's up!");
+            alert("Sorry, time's up!");
         }
         $("#game-timer").text(seconds);
         }, 1000);
-        $("#game-questions").text();
+        $("#game-questions").html(gameQuestions[0].question);
      });
 
         // Questions
@@ -50,10 +50,25 @@ $(document).ready(function(){
         
         console.log(gameQuestions[0].question);
 
+        // Testing code for game questions
+        for (var i = 0; i < gameQuestions.length; i++) {
+            console.log(gameQuestions[i]);
+          }
+
+     /*    var i = 0
+        // Function to show questions 
+
+        var showQuestions = function () {
+            $("#game-questions").text(gameQuestions[i])
+        }
+ */
+
      setTimeout(()=> {
         console.log($('input:checked'))
-        //Find each question wrapper
-        //DO a for each and within each div search for input:checked if ti exists great they answered if not they didnt
      }, 3000)
    
     });
+
+        //Find each question wrapper
+        
+        //Do a for each and within each div search for input:checked if it exists great they answered if not they didnt
