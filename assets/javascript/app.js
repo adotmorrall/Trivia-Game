@@ -13,31 +13,42 @@ $(document).ready(function(){
         }
         $("#game-timer").text(seconds);
         }, 1000);
-        $("#game-questions").text(gameQuestions);
+        $("#game-questions").text();
      });
 
-        /* Create an array for the questions
-        & assign a variable per question where it calls the index of it in the gameQuestions array */
-
-        var gameQuestions = {
-            question1: 'Who framed Roger Rabbit?',
+        // Questions
+        
+        var question1 = {
+            question: 'Who framed Roger Rabbit?',
             options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
             answer: 'The Fuzz',     
-        }
+        };
+        var question2 = {
+            question: 'Who framed Roger Bear?',
+            options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
+            answer: 'Bob',     
+        };
+        var question3 = {
+            question: 'Who framed Roger Dog?',
+            options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
+            answer: 'Jeff',     
+        };
+        var question4= {
+            question: 'Who framed Roger Cat?',
+            options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
+            answer: 'The Fuzz',     
+        };
+        var question5 = {
+            question: 'Who framed Roger Tiger?',
+            options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
+            answer: 'Peter',     
+        };
         
-        
+        // Array of questions
 
- /*     var gameQuestions = [
-         {
-             question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi quod cum ullam totam magni"
-         },
-         {
-             question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi quod cum ullam totam magni"
-         },
-         {
-             question: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi quod cum ullam totam magni"
-         },
-     ] */
+        var gameQuestions = [question1, question2, question3, question4, question5];
+        
+        console.log(gameQuestions[0].question);
 
      setTimeout(()=> {
         console.log($('input:checked'))
