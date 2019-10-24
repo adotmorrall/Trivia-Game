@@ -53,9 +53,9 @@ $(document).ready(function () {
         console.log(gameQuestions[q]);
         
         // Code to show answers. Create buttons
-        for (var a = 0; a < gameQuestions.length; a++) {
+        for (var a = 0; a < gameQuestions[q].options.length; a++) {
         //Testing layout of answers to show on HTML
-            $("#game-questions").append("<p>" + gameQuestions[a].options + "</p>");
+            $("#game-questions").append("<p>" + gameQuestions[q].options[a] + "</p>");
         }
     }
 
