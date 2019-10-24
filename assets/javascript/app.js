@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/* $(document).ready(function () {
     $("#game-timer").parent().hide();
     $(document).on('click', '#start-game', function () {
         $("#start-game").hide();
@@ -14,51 +14,47 @@ $(document).ready(function () {
             $("#game-timer").text(seconds);
         }, 1000);
         $("#game-questions").html(gameQuestions[0].question); // Figure out how to get content to show all questions in the HTML
-    });
-
+    }); */
+    
+    // Create an array of objects for game questions
+    
     // Questions
-
-    var question1 = {
+    var gameQuestions = [
+    {
         question: 'Who framed Roger Rabbit?',
         options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
         answer: 'The Fuzz',
-    };
-    var question2 = {
+    },
+    {
         question: 'Who framed Roger Bear?',
         options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
-        answer: 'Bob',
-    };
-    var question3 = {
+        answer: 'Bob'
+    },
+    {
         question: 'Who framed Roger Dog?',
         options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
         answer: 'Jeff',
-    };
-    var question4 = {
+    },
+    {
         question: 'Who framed Roger Cat?',
         options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
         answer: 'The Fuzz',
-    };
-    var question5 = {
+    },
+    {
         question: 'Who framed Roger Tiger?',
         options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
         answer: 'Peter',
-    };
-
-    // Array of questions
-
-    var gameQuestions = [question1, question2, question3, question4, question5];
-    console.log(gameQuestions);
+    },
+];
 
     // Testing code for game questions
-    function showQuestions() {
-        $("#game-questions").text(gameQuestions[i].question)
-        for (var i = 0; i < gameQuestions[i].question.length; i++) {
-            console.log(gameQuestions[i]);
+/*     function showQuestions() {
+        $("#game-questions").text(gameQuestions[i].question) */
+        for (var q = 0; q < gameQuestions.length; q++) {
+            $("#game-questions").append("<h4>" + gameQuestions[q].question + "</h4>")
+            console.log(gameQuestions[q]);
         }
-    }
-
+    
     setTimeout(() => {
         console.log($('input:checked'))
     }, 3000)
-
-})
