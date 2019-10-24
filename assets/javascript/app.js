@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     // Testing code for game questions
     function showQuestions() {
-        $("#game-timer").text(gameQuestions[i].question)
+        $("#game-questions").text(gameQuestions[i].question)
         for (var i = 0; i < gameQuestions[i].question.length; i++) {
             console.log(gameQuestions[i]);
         }
