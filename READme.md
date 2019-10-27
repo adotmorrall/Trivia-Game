@@ -1,3 +1,5 @@
 ## Trivia Game
 
-- [ ] Pseudocode
+## Acceptance Criteria
+- [ ] search by zip code
+- [ ] geolocation
