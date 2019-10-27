@@ -1,1 +1,3 @@
 ## Trivia Game
+
+- [ ] Pseudocode
