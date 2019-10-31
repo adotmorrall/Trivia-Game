@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $("#game-timer").parent().hide();
+    // $('#game-questions').hide();
     $(document).on('click', '#start-game', function () {
         $("#start-game").hide();
         $("#game-timer").parent().show();
-        $("#game-questions").parent().show();
+        $("#game-questions").show();
         var seconds = 10;
         var gameTimer = setInterval(() => {
             seconds--;
@@ -13,7 +14,7 @@ $(document).ready(function () {
             }
             $("#game-timer").text(seconds);
         }, 1000);
-        $("#game-questions").html(gameQuestions[q]); // Figure out how to get content to show all questions in the HTML
+        $("#game-questions").html(gameQuestions[q]); 
     });
 
     // Create an array of objects for game questions
@@ -55,7 +56,7 @@ $(document).ready(function () {
         // Code to show answers. Create buttons
         for (var a = 0; a < gameQuestions[q].options.length; a++) {
         //Testing layout of answers to show on HTML
-            $("#game-questions").append("<p>" + gameQuestions[q].options[a] + "</p>");
+            $("#game-questions").append("<p> <input type='radio'>" + gameQuestions[q].options[a] + "</p>");
         }
     }
 
