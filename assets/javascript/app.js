@@ -14,7 +14,7 @@ $(document).ready(function () {
             }
             $("#game-timer").text(seconds);
         }, 1000);
-        $("#game-questions").html(gameQuestions[q]); 
+        $("#game-questions").html(gameQuestions[q]);
     });
 
     // Create an array of objects for game questions
@@ -48,17 +48,26 @@ $(document).ready(function () {
 
     // Testing code for game questions
 
-        // Code to show questions.
-        for (var q = 0; q < gameQuestions.length; q++) {
+    // Code to show questions.
+    for (var q = 0; q < gameQuestions.length; q++) {
         $("#game-questions").append("<p>" + gameQuestions[q].question + "</p>")
         console.log(gameQuestions[q]);
-        
+
         // Code to show answers. Create buttons
         for (var a = 0; a < gameQuestions[q].options.length; a++) {
-        //Testing layout of answers to show on HTML
-            $("#game-questions").append("<p> <input type='radio'>" + gameQuestions[q].options[a] + "</p>");
+            //Testing layout of answers to show on HTML
+            $("#game-questions").append(
+                "<input type='radio' value='" + gameQuestions[q].options[a] + "' name='question-" + q + "'>"
+                + gameQuestions[q].options[a]);
         }
     }
+
+    $('#done').click(function () {
+        console.log('I work');
+        $('#game-questions input[type=radio]:checked').each(function (index) {
+            console.log(index, this.value);
+        })
+    })
 
     // Code by tutor
     setTimeout(() => {
