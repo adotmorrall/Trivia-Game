@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
+
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <!-- Main container -->
-    <div class="wrapper">
+    <div class="container">
 
         <!-- Logo-->
         <div class="row">
@@ -26,29 +28,27 @@
 
         <!-- Game Instructions-->
         <div class="row">
-            <div class="col-md-8 text-left">
+            <div id="game-info" class="col-md-8 text-left">
                 <h2>Get Ready to Play</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi
                     quod cum ullam totam magni ad veritatis reprehenderit deserunt ipsum optio commodi pariatur facilis
                     aliquam similique. Doloribus.</p>
             </div>
         </div>
-        
-        <div class="trivia-section">
 
-            <!-- Start game button-->
-            <button type="button" id="start-game" class="btn btn-warning btn-lg">Start Game</button>
-
-            <!-- Timer -->
-            <div>Time remaining: <span id="game-timer">60</span> seconds</div>
-
-            <!-- Questions -->
-
-            <div id="game-questions"></div>
-
-            <button type="button" id="done" class="btn btn-warning btn-lg">Done</button>
+        <!-- Start game button-->
+        <div>
+            <button type="button" id="start-btn" class="btn btn-warning btn-lg">Start Game</button>
         </div>
 
+        <div id="game-timer"></div>
+
+        <!-- Questions -->
+        <div id="game-questions"></div>
+
+        <div>
+            <button type="button" id="end-btn" class="btn btn-warning btn-lg">Done</button>
+        </div>
     </div>
 
     <!-- JQuery -->
