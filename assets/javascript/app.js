@@ -1,85 +1,102 @@
-// Page default
-$('#start-btn').click(function () {
-    console.log('I work');
-    $('#start-btn').show();
-    $('.trivia-section').hide();
-    for (var q = 0; q < gameQuestions.length; q++) {
-        $("#game-questions").append("<h6>" + gameQuestions[q].question + "</h6>")
-        console.log(gameQuestions[q]);
+var card = $("#game-questions");
 
-        // Code to show answers. Create buttons
-        for (var a = 0; a < gameQuestions[q].options.length; a++) {
-            $("#game-questions").append(
-                "<input type='radio' value='" + gameQuestions[q].options[a] + "' name='question-" + q + "'>"
-                + gameQuestions[q].options[a]);
-        }
+// Question set
+var questions = [
+    {
+        question: "What was the first full length CGI movie?",
+        options: ["A Bug's Life", "Monsters Inc.", "Toy Story", "The Lion King"],
+        answer: "Toy Story"
+    },
+    {
+        question: "Which of these is NOT a name of one of the Spice Girls?",
+        options: ["Sporty Spice", "Fred Spice", "Scary Spice", "Posh Spice"],
+        answer: "Fred Spice"
+    },
+    {
+        question: "Which NBA team won the most titles in the 90s?",
+        options: ["New York Knicks", "Portland Trailblazers", "Los Angeles Lakers", "Chicago Bulls"],
+        answer: "Chicago Bulls"
+    },
+    {
+        question: "Which group released the hit song, 'Smells Like Teen Spirit'?",
+        options: ["Nirvana", "Backstreet Boys", "The Offspring", "No Doubt"],
+        answer: "Nirvana"
+    },
+    {
+        question: "Which popular Disney movie featured the song, 'Circle of Life'?",
+        options: ["Aladdin", "Hercules", "Mulan", "The Lion King"],
+        answer: "The Lion King"
     }
-})
-
-
-// Create an array of objects for game questions
-var gameQuestions = [
-    {
-        question: 'Who framed Roger Rabbit?',
-        options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
-        answer: 'The Fuzz',
-    },
-    {
-        question: 'Who framed Roger Bear?',
-        options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
-        answer: 'Bob'
-    },
-    {
-        question: 'Who framed Roger Dog?',
-        options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
-        answer: 'Jeff',
-    },
-    {
-        question: 'Who framed Roger Cat?',
-        options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
-        answer: 'The Fuzz',
-    },
-    {
-        question: 'Who framed Roger Tiger?',
-        options: ['Bob', 'Jeff', 'The Fuzz', 'Peter'],
-        answer: 'Peter',
-    },
 ];
 
-// var timer;
+// Variable that will hold the setInterval
+var timer;
 
-// // Start game
-// $(document).on('click', '#start-btn', function () {
-//     $('#game-info').hide();
-//     $("#start-btn").hide();
-//     $("#game-timer").show();
-//     $("#game-questions").show();
-//     // var seconds = 40;
-//     // var gameTimer = setInterval(() => {
-//     //     seconds--;
-//     //     if (seconds === 0) {
-//     //         clearInterval(gameTimer);
-//     //         console.log("Sorry, time's up!"); // Change to alert
-//     //     }
-//     //     $("#game-timer").html('<h5> Time remaining: ' + seconds + ' seconds </h5>');
-//     // }, 1000);
-//     $("#end-btn").show();
-// });
+var game = {
+    correct: 0,
+    incorrect: 0,
+    counter: 120,
 
+    countdown: function () {
+        game.counter--;
+        $("#counter-number").html(game.counter);
+        if (game.counter === 0) {
+            console.log("TIME UP");
+            game.done();
+        }
+    },
 
-// $(document).on('click', '#end-btn', function () {
-//     console.log('I work');
-//     clearInterval(timer);
-// })
-//     // $('#end-btn').click(function () {
-//     //     console.log('I work');
-//     //     $('#game-questions input[type=radio]:checked').each(function (index) {
-//     //         console.log(index, this.value);
+    start: function () {
+        timer = setInterval(game.countdown, 1000);
 
-//     // for (var i = 0; i < options.length; i++) {
-//     //     if ($('#game-questions input[type=radio]:checked') === gameQuestions[i].answer) {
-//     //         console.log('The answer is ' + gameQuestions[i].answer);
-//     //     }
-//     // }
-//     //     })
-//     // })
+        $(".trivia-section").prepend(
+            "<h6>Time Remaining: <span id='counter-number'>120</span> Seconds</h6>"
+        );
+
+        $("#start-btn").hide();
+        $('#game-info').hide();
+
+        for (var i = 0; i < questions.length; i++) {
+            card.append("<h6>" + questions[i].question + "</h6>");
+            for (var j = 0; j < questions[i].options.length; j++) {
+                card.append("<input type='radio' name='question-" + i +
+                    "' value='" + questions[i].options[j] + "''>" + questions[i].options[j]);
+            }
+        }
+
+        card.append('<button type="button" id="end-btn" class="btn btn-warning btn-lg">Done</button>');
+
+    },
+
+    done: function () {
+        var inputs = card.children("input:checked");
+        for (var i = 0; i < inputs.length; i++) {
+            if ($(inputs[i]).val() === questions[i].answer) {
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        }
+        this.result();
+    },
+
+    result: function () {
+        clearInterval(timer);
+
+        $(".trivia-section h6").hide();
+
+        card.html("<h3>All Done!</h3>");
+        card.append("<h5>Correct answers: " + this.correct + "</h5>");
+        card.append("<h5>Incorrect answers: " + this.incorrect + "</h5>");
+    }
+};
+
+// CLICK EVENTS
+
+$(document).on("click", "#start-btn", function () {
+    game.start();
+});
+
+$(document).on("click", "#end-btn", function () {
+    game.done();
+});

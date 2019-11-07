@@ -1,4 +1,38 @@
 /* Body Style */
+
 body {
-    background-image: url();
+    background-image: url(/assets/images/closeup-photo-of-brown-brick-wall-1227511.jpg);
+}
+
+.container {
+    background-color: whitesmoke;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    margin-top: 8em;
+}
+
+#game-questions h6 {
+    padding: 5px;
+}
+
+#game-questions input {
+    margin: 5px;
+}
+
+div.col-md-8.text-center {
+    margin-left: 8em;
+}
+
+/* button#start-btn.btn.btn-warning.btn-lg {
+    margin-left: 14em;
+} */
+
+/* button#end-btn.btn.btn-warning.btn-lg {
+    margin-top: 1em;
+    margin-left: 14em; */
+
+}
+
+#game-questions h6 {
+    font-weight: bold;
 }

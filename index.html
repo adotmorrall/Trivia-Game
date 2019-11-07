@@ -7,12 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
 
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+
     <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
+
+
 </head>
 
 <body>
@@ -21,34 +26,40 @@
 
         <!-- Logo-->
         <div class="row">
-            <div class="col-md-12 text-left">
+            <div class="col-md-12 text-center">
                 <h1 class="display-3">Trivia Game</h1>
             </div>
         </div>
 
-        <!-- Game Instructions-->
-        <div class="row">
-            <div id="game-info" class="col-md-8 text-left">
-                <h2>Get Ready to Play</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum eligendi
-                    quod cum ullam totam magni ad veritatis reprehenderit deserunt ipsum optio commodi pariatur facilis
-                    aliquam similique. Doloribus.</p>
+        <div class="trivia-section" class="col-md-8 text-center">
+
+            <!-- Game Instructions-->
+            <div class="row" id="game-info">
+                <h2 class="col-md-12 text-left">Get Ready to Play</h2>
+                <div class="col-md-12 text-left">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quidem nemo, laborum
+                        eligendi
+                        quod cum ullam totam magni ad veritatis reprehenderit deserunt ipsum optio commodi pariatur
+                        facilis
+                        aliquam similique. Doloribus.</p>
+                </div>
+            </div>
+
+            <!-- Questions -->
+            <div id="game-questions"></div>
+
+            <!-- Start game button-->
+            <div>
+                <button type="button" id="start-btn" class="btn btn-warning btn-lg">Start Game</button>
             </div>
         </div>
 
-        <!-- Start game button-->
-        <div>
-            <button type="button" id="start-btn" class="btn btn-warning btn-lg">Start Game</button>
-        </div>
 
-        <div id="game-timer"></div>
 
-        <!-- Questions -->
-        <div id="game-questions"></div>
-
-        <div>
+        <!-- <div>
             <button type="button" id="end-btn" class="btn btn-warning btn-lg">Done</button>
-        </div>
+        </div> -->
+
     </div>
 
     <!-- JQuery -->
